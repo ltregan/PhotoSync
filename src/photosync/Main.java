@@ -19,8 +19,12 @@ public class Main {
 			List<String> names = ListFiles( dest ) ;
 			System.out.println(names);
 			System.out.println(sources);
-			for( String source: sources)
+			for( String source: sources){
+				File drive = new File(source);
+				if( ! drive.isDirectory() )
+					continue;
 				Copy( new File(source), dest, names);
+			}
 			System.in.read();
 		} catch(UserException x){
 			System.out.println( x.getMessage() );
