@@ -17,8 +17,6 @@ public class Main {
 				throw new UserException("Use target directory as command line");
 			File dest = new File(args[0]);
 			List<String> names = ListFiles( dest ) ;
-			System.out.println(names);
-			System.out.println(sources);
 			for( String source: sources){
 				File drive = new File(source);
 				if( ! drive.isDirectory() )
@@ -47,7 +45,6 @@ public class Main {
 			String name = f.getName();
 			name = name.substring(0, name.length()-4);
 			result.add( name );
-			System.out.println("file="+name);
 		}
 		return result;
 	}
